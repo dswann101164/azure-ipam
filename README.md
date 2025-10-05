@@ -145,6 +145,36 @@ Visit `http://localhost:5000` in your browser.
 - Hierarchical view: Subscription → VNet → Subnet
 - Click to view detailed metrics
 
+---
+
+## Screenshots
+
+### Authentication
+![Azure AD Login](screenshots/01-login.png)
+*Enterprise SSO with Azure AD - request required permissions on first login*
+
+### Dashboard Overview
+![IP Address Dashboard](screenshots/02-dashboard.png)
+*Real-time IP scope utilization across all subscriptions*
+
+### IP Address Search
+![IP Search](screenshots/03-ip-search.png)
+*Find available IPs across VNets with subnet filtering*
+
+### Network Browser
+![Network Browser](screenshots/04-network-browser.png)
+*Navigate subscription hierarchy to find specific VNets and subnets*
+
+### IP Reservations
+![Reservation Management](screenshots/05-reservations.png)
+*Reserve IPs for future use with three reservation types: NIC, Private Endpoint, or General*
+
+### Topology View
+![Multi-Subscription Topology](screenshots/06-topology.png)
+*Visual network topology showing relationships across subscriptions*
+
+---
+
 ## Usage Scenarios
 
 ### Subscription Consolidation
