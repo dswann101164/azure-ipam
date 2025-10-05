@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Azure IPAM{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 80px auto; text-align: center;">
+    <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid #e5e5e5;">
+        
+        <!-- Logo/Title -->
+        <div style="margin-bottom: 40px;">
+            <h1 style="color: #0078d4; margin: 0; font-size: 2.5em; font-weight: 300;">
+                🌐 Azure IPAM
+            </h1>
+            <p style="color: #605e5c; margin: 10px 0 0 0; font-size: 1.1em;">
+                IP Address Management for Azure Networks
+            </p>
+        </div>
+
+        <!-- Description -->
+        <div style="margin-bottom: 40px; text-align: left;">
+            <h3 style="color: #323130; margin-bottom: 16px;">Features:</h3>
+            <ul style="list-style: none; padding: 0; color: #605e5c; line-height: 1.8;">
+                <li>📊 <strong>Real-time IP utilization</strong> across all your Azure subscriptions</li>
+                <li>🔍 <strong>Subnet analysis</strong> with capacity planning insights</li>
+                <li>🔒 <strong>Private endpoint inventory</strong> and management</li>
+                <li>⚡ <strong>Live data</strong> directly from Azure Resource Manager APIs</li>
+                <li>📈 <strong>Utilization alerts</strong> with color-coded status indicators</li>
+            </ul>
+        </div>
+
+        <!-- Login Button -->
+        <div>
+            <a href="/login" class="login-btn">
+                <svg style="width: 20px; height: 20px; margin-right: 12px; vertical-align: middle;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.04 12.27c0-.69-.06-1.36-.18-2H12v4.51h6.18c-.26 1.37-1.04 2.53-2.21 3.31v2.75h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285f4"/>
+                    <path d="M12 24c2.97 0 5.46-.98 7.28-2.66l-3.57-2.75c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 21.98 7.7 24 12 24z" fill="#34a853"/>
+                    <path d="M5.84 14.12c-.22-.66-.35-1.36-.35-2.12s.13-1.46.35-2.12V7.04H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.96l2.85-2.22.81-.62z" fill="#fbbc05"/>
+                    <path d="M12 4.75c1.61 0 3.06.55 4.21 1.64l3.15-3.15C17.45 1.09 14.97 0 12 0 7.7 0 3.99 2.02 2.18 5.04l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#ea4335"/>
+                </svg>
+                Sign in with Microsoft
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 14px; color: #8a8886;">
+                🔒 Secure authentication via Azure Active Directory<br>
+                Your credentials are never stored on our servers
+            </p>
+        </div>
+
+        <!-- Requirements -->
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #edebe9; text-align: left;">
+            <h4 style="color: #605e5c; margin-bottom: 12px;">Required Azure Permissions:</h4>
+            <ul style="font-size: 13px; color: #8a8886; line-height: 1.6; margin: 0;">
+                <li><strong>Reader</strong> - View Azure subscriptions and resources</li>
+                <li><strong>Network Contributor</strong> - Access virtual network details</li>
+                <li><strong>Monitoring Reader</strong> - View network metrics and utilization</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0078d4, #106ebe);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,120,212,0.3);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #106ebe, #005a9e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,120,212,0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .login-btn {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+}
+</style>
+{% endblock %}
