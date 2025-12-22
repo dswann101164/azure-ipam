@@ -278,3 +278,24 @@ Built by Azure Architects solving real-world IP management problems during large
 - Tool automatically subtracts Azure's 5 reserved IPs per subnet
 - Verify subnet has resources deployed (empty subnets show 0 used IPs)
 - Check for private endpoints which consume unpredictable IP space
+
+---
+
+## ?? Documentation & Related Guides
+
+IPAM is critical for managing hybrid Azure + on-premises networking environments:
+
+**Networking & Hybrid Infrastructure:**
+- **[Azure Arc Hub](https://azure-noob.com/hub/arc/)** - Managing hybrid infrastructure at enterprise scale (850+ Arc-enabled VMs)
+- **[Azure Private DNS Resolver](https://azure-noob.com/blog/azure-private-dns-resolver/)** - DNS resolution in hybrid environments
+- **[Azure Networking Hub](https://azure-noob.com/hub/migration/)** - Network architecture patterns for cloud migration
+
+**Automation & Development:**
+- **[Azure Automation Hub](https://azure-noob.com/hub/automation/)** - Flask and Python automation patterns for Azure operations
+- **[Terraform Hub](https://azure-noob.com/hub/terraform/)** - Infrastructure as Code for networking resources
+
+**Full blog:** [azure-noob.com](https://azure-noob.com) - Azure hybrid networking and operations guides from production environments
+
+---
+
+**Flask-based IPAM tool for multi-subscription Azure environments. Production-tested across hybrid infrastructure.**
