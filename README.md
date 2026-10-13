@@ -1,6 +1,26 @@
+<div align="center">
+
 # Azure IPAM Tool
 
+**IP address discovery and utilization across multi-subscription Azure estates**
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Azure](https://img.shields.io/badge/Microsoft%20Azure-Networking-0078D4?logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+</div>
+
 A Flask-based IP Address Management (IPAM) tool for tracking and managing IP address allocation across multiple Azure subscriptions. Built for enterprise environments consolidating large Azure footprints.
+
+## How This Compares to Microsoft's Native Options
+
+As of October 2026, Microsoft offers IPAM in two forms:
+
+- **IPAM in Azure Virtual Network Manager (AVNM)** - generally available in most AVNM regions. It is pool-based: you define IP address pools, AVNM assigns non-overlapping CIDRs to new VNets, and it tracks usage for the resources associated with those pools. Its strength is **allocation** - planning and handing out address space going forward.
+- **The open-source Azure IPAM app** ([azure.github.io/ipam](https://azure.github.io/ipam)) - a full application you deploy into your own subscription as an App Service or Function App.
+
+This tool solves a narrower problem: **discovery and utilization** across an existing multi-subscription estate. It reads what is already deployed - VNets, subnets, and the IPs consumed in them - with no pools to build first and no infrastructure to deploy beyond an app registration; it runs locally with your Azure sign-in. It is meant for brownfield work such as consolidations and audits, not as a replacement for AVNM's allocation workflow.
 
 ## What It Does
 
@@ -27,7 +47,7 @@ Perfect for Azure Architects managing subscription consolidations, mergers, or l
 
 Before running the tool, create an Azure AD app registration:
 
-1. **Go to Azure Portal** → Azure Active Directory → App registrations → New registration
+1. **Go to Azure Portal** > Azure Active Directory > App registrations > New registration
 2. **Name**: `Azure IPAM Tool` (or your preference)
 3. **Supported account types**: Single tenant
 4. **Redirect URI**: 
@@ -38,13 +58,13 @@ Before running the tool, create an Azure AD app registration:
 6. **Note your Application (client) ID and Directory (tenant) ID** from the Overview page
 
 7. **Create a client secret**:
-   - Certificates & secrets → New client secret
+   - Certificates & secrets > New client secret
    - Description: `IPAM Tool Secret`
    - Expires: Choose appropriate duration
    - Copy the **Value** (not Secret ID) immediately - you can't retrieve it later
 
 8. **Add API permissions**:
-   - API permissions → Add a permission
+   - API permissions > Add a permission
    - **Microsoft Graph**:
      - Delegated permissions: `User.Read`
    - **Azure Service Management**:
@@ -52,8 +72,8 @@ Before running the tool, create an Azure AD app registration:
    - Click "Grant admin consent" if you have admin rights
 
 9. **Assign Azure RBAC roles**:
-   - Go to Subscriptions → Select subscription → Access control (IAM)
-   - Add role assignment → Reader (or Network Contributor)
+   - Go to Subscriptions > Select subscription > Access control (IAM)
+   - Add role assignment > Reader (or Network Contributor)
    - Select your app registration
    - Repeat for each subscription you want to monitor
 
@@ -61,7 +81,7 @@ Before running the tool, create an Azure AD app registration:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/azure-ipam.git
+git clone https://github.com/dswann101164/azure-ipam.git
 cd azure-ipam
 
 # Create virtual environment
@@ -142,7 +162,7 @@ Visit `http://localhost:5000` in your browser.
 ### Network Topology Visualization
 - Interactive D3.js network diagram
 - Color-coded by utilization status
-- Hierarchical view: Subscription → VNet → Subnet
+- Hierarchical view: Subscription > VNet > Subnet
 - Click to view detailed metrics
 
 ---
@@ -208,7 +228,7 @@ For quarterly infrastructure reviews:
 
 - **Large environments**: Scanning 44+ subscriptions can take 30-60 seconds on initial load. Consider implementing background job queue for very large deployments.
 
-- **Authentication**: Uses OAuth device code flow. For production deployment, implement proper session management and token refresh.
+- **Authentication**: Uses the OAuth 2.0 authorization code flow (MSAL confidential client with a client secret and the `http://localhost:5000/auth/callback` redirect URI). The MSAL token cache is held in process memory and shared by the app instance, so the tool is designed for single-user local use. For production or multi-user deployment, implement a per-user token cache, proper session management, and token refresh.
 
 ## Deployment Options
 
@@ -255,7 +275,7 @@ MIT License - See LICENSE file for details
 
 ## Acknowledgments
 
-Built by Azure Architects solving real-world IP management problems during large-scale subscription consolidations. Documented at [azure-noob.com](https://azure-noob.com).
+Built by David Swann solving real-world IP management problems during large-scale subscription consolidations. Documented at [azure-noob.com](https://azure-noob.com).
 
 ## Troubleshooting
 
@@ -281,7 +301,7 @@ Built by Azure Architects solving real-world IP management problems during large
 
 ---
 
-## ?? Documentation & Related Guides
+## Documentation and Related Guides
 
 IPAM is critical for managing hybrid Azure + on-premises networking environments:
 
