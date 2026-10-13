@@ -40,14 +40,14 @@ Perfect for Azure Architects managing subscription consolidations, mergers, or l
 
 - Python 3.8+
 - Azure tenant with subscriptions you want to monitor
-- Azure AD App Registration with appropriate permissions
+- Microsoft Entra ID App Registration with appropriate permissions
 - Network Contributor or Reader role on target subscriptions
 
-## Azure AD App Registration
+## Microsoft Entra ID App Registration
 
-Before running the tool, create an Azure AD app registration:
+Before running the tool, create a Microsoft Entra ID app registration:
 
-1. **Go to Azure Portal** > Azure Active Directory > App registrations > New registration
+1. **Go to Azure Portal** > Microsoft Entra ID > App registrations > New registration
 2. **Name**: `Azure IPAM Tool` (or your preference)
 3. **Supported account types**: Single tenant
 4. **Redirect URI**: 
@@ -102,7 +102,7 @@ cp .env.example .env
 
 ## Configuration
 
-Edit `.env` file with your Azure AD app details:
+Edit `.env` file with your Microsoft Entra ID app details:
 
 ```bash
 CLIENT_ID=your-application-client-id
@@ -170,8 +170,8 @@ Visit `http://localhost:5000` in your browser.
 ## Screenshots
 
 ### Authentication
-![Azure AD Login](screenshots/01-login.png)
-*Enterprise SSO with Azure AD - request required permissions on first login*
+![Microsoft Entra ID Login](screenshots/01-login.png)
+*Enterprise SSO with Microsoft Entra ID - request required permissions on first login*
 
 ### Dashboard Overview
 ![IP Address Dashboard](screenshots/02-dashboard.png)
@@ -290,7 +290,7 @@ Built by David Swann solving real-world IP management problems during large-scal
 - Confirm CLIENT_ID, CLIENT_SECRET, and TENANT_ID are correct in `.env`
 
 **"Authentication failed"**
-- Verify redirect URI in Azure AD matches `http://localhost:5000/auth/callback`
+- Verify redirect URI in Microsoft Entra ID matches `http://localhost:5000/auth/callback`
 - Check that client secret hasn't expired
 - Ensure browser allows cookies for authentication flow
 
