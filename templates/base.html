@@ -147,13 +147,13 @@
         <div class="container">
             <div class="header-content">
                 <a href="{{ url_for('home') }}" class="logo">
-                    🌐 Azure IPAM
+                    Azure IPAM
                 </a>
                 
                 {% if session.user %}
                 <div class="user-info">
                     <span class="user-name">
-                        👤 {{ session.user.name }}
+                        {{ session.user.name }}
                     </span>
                     <a href="{{ url_for('logout') }}" class="logout-btn">
                         Logout
@@ -176,7 +176,7 @@
         <div class="container">
             <p>
                 Azure IPAM Tool &copy; {{ moment().year if moment else 2025 }} | 
-                Secure Azure AD Authentication | 
+                Secure Microsoft Entra ID Authentication | 
                 Real-time Network Analysis
             </p>
         </div>
